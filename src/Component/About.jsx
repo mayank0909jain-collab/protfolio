@@ -1,50 +1,71 @@
-// About.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    
     <div className="min-h-screen bg-black text-white px-10 py-20 flex items-center justify-center">
-       
-      <div className="max-w-5xl flex flex-col md:flex-row items-center gap-12">
 
-        {/* Left Side - Image */}
-        <div className="w-full md:w-1/3 flex justify-center">
+      <motion.div 
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-6xl flex flex-col md:flex-row items-center gap-12"
+      >
+
+        {/* Image */}
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          className="w-full md:w-1/3 flex justify-center"
+        >
           <img
-            src="https://i.pinimg.com/736x/64/fc/4d/64fc4dc8aa05356cd1c572335bb9b6aa.jpg"
-            alt="Profile"
-            className="w-60 h-60 rounded-full border-4 border-blue-500 shadow-lg hover:scale-105 transition duration-300"
+            src="/mayank2.jpeg"
+            alt="Mayank Jain"
+            className="w-56 h-56 rounded-2xl object-cover border border-gray-700 shadow-xl"
           />
-        </div>
+        </motion.div>
 
-        {/* Right Side - Content */}
-        <div className="w-full md:w-2/3 space-y-6">
-          <h1 className="text-4xl font-bold text-blue-500">About Me</h1>
+        {/* Content */}
+        <div className="w-full md:w-2/3 space-y-5">
 
-          <p className="text-lg text-gray-300">
-  Hi, I'm <span className="text-white font-semibold">Mayank Jain</span>, 
-  a Computer Science student and Full Stack Web Developer. I build responsive
-  and modern websites using React, Tailwind CSS, Node.js, and MongoDB.
+          <h1 className="text-4xl font-bold">
+            About <span className="text-blue-500">Me</span>
+          </h1>
+
+         
+  <p className="text-gray-300 leading-relaxed">
+  Hi, I’m Mayank Jain, a passionate Computer Science student and Full Stack Web Developer. 
+  I specialize in building fast, scalable, and modern web applications using React, Tailwind CSS, Node.js, Express, and MongoDB. 
+  My focus is on clean UI/UX, performance optimization, and writing maintainable and production-ready code.
 </p>
 
-<p className="text-gray-400">
-  I am also exploring Generative AI and working with AI tools, prompts, and 
-  learning how to build AI-powered applications.
+<p className="text-gray-400 leading-relaxed mt-3">
+  Currently, I’m exploring Generative AI, LangChain, and LLM-based applications. 
+  I’m building AI-powered tools like chatbots, recommendation systems, and smart web apps, and I love integrating AI models into real-world products.
 </p>
 
-<p className="text-gray-400">
-  I have interest in Machine Learning and Deep Learning and I am learning data 
-  science concepts, algorithms, and neural networks to build intelligent systems.
+<p className="text-gray-400 leading-relaxed mt-3">
+  I’m deeply passionate about Machine Learning, Deep Learning, and Data Science. 
+  I enjoy working with Python, TensorFlow, PyTorch, and Scikit-learn, and building prediction systems, NLP models, and data-driven applications that solve real problems.
 </p>
+
+<p className="text-gray-400 leading-relaxed mt-3">
+  Beyond coding, I enjoy playing cricket, traveling, exploring new places, and riding bikes. 
+  Long rides and bike engineering really fascinate me.
+</p>
+
+<p className="text-gray-500 leading-relaxed mt-3">
+  I believe in continuous learning, building impactful products, and improving myself every day as a developer and problem solver.
+</p>
+
           {/* Skills */}
           <div>
-            <h2 className="text-2xl font-semibold text-blue-400 mb-3">Skills</h2>
+            <h2 className="text-xl font-semibold text-gray-200 mb-3">Skills</h2>
             <div className="flex flex-wrap gap-3">
-              {["HTML", "CSS", "JavaScript", "React", "Tailwind", "Node.js", "MongoDB", "Python","Langchain","ML","DL"].map((skill) => (
+              {["HTML","CSS","JavaScript","React","Tailwind","Node.js","MongoDB","Python","LangChain","ML","DL"].map(skill => (
                 <span
                   key={skill}
-                  className="px-4 py-2 bg-blue-600/20 border border-blue-500 rounded-full text-sm hover:bg-blue-500 transition"
+                  className="px-3 py-1 text-sm border border-gray-700 rounded-md text-gray-300 hover:bg-white hover:text-black transition"
                 >
                   {skill}
                 </span>
@@ -52,16 +73,16 @@ const About = () => {
             </div>
           </div>
 
-          {/* Buttons */}
-          <div className="flex gap-4 mt-6">
-           
-            <Link to='/contact'><button className="px-6 py-2 border border-blue-500 rounded-lg hover:bg-blue-500 transition">
+          {/* Button */}
+          <Link to="/contact">
+            <button className="mt-4 px-6 py-2 bg-white text-black rounded-md font-medium hover:bg-gray-200 transition">
               Contact Me
-            </button></Link>
-          </div>
-        </div>
+            </button>
+          </Link>
 
-      </div>
+        </div>
+      </motion.div>
+
     </div>
   );
 };
